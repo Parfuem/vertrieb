@@ -1,0 +1,258 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,1)),url(bilder/pexels-valeriya-965731.jpg);
+    background-size: cover;
+    background-position: center;
+    
+}
+
+body{
+    
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,1)),url(bilder/pexels-valeriya-965731.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    width: 100%;
+    margin: auto;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed; /* Macht die Navigation fixiert */
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: background-color 0.3s ease;
+    z-index: 1000; /* Stellt sicher, dass die Navigation über allen anderen Elementen bleibt */
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 1); /* Ändert den Hintergrund bei Scrollen */
+}
+
+.banner {
+    padding-top: 120px; /* Verhindert, dass Inhalte von der fixierten Navigation verdeckt werden */
+}
+
+
+.logo{
+    width: 120px;
+    margin-left: 7.5%;
+}
+
+.navbar ul{
+    margin-right: 7.5%;
+}
+
+.navbar ul li{
+    
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    
+}
+
+.navbar ul li::after{
+    content: "";
+    height: 3px;
+    width: 0;
+    background: #957850;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.hamburger {
+    margin-right: 7.5%;
+    display: none; /* Versteckt auf größeren Bildschirmen */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+
+.content{
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: white;
+}
+
+
+.content h1{
+    font-size: 70px;
+    margin-top: 80px;
+    opacity: 0; /* Anfangszustand: unsichtbar */
+    transform: translateY(20px); /* Anfangszustand: etwas nach unten verschoben */
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+}
+
+
+
+.content h2{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    opacity: 0; /* Anfangszustand: unsichtbar */
+    transform: translateY(20px); /* Anfangszustand: etwas nach unten verschoben */
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-delay: 1.8s;
+}
+
+.content h3{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    opacity: 0; /* Anfangszustand: unsichtbar */
+    transform: translateY(20px); /* Anfangszustand: etwas nach unten verschoben */
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-delay: 1.8s;
+}
+
+
+
+
+
+.container{
+    display: flex;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    justify-content: center;
+
+    opacity: 0; /* Anfangszustand: unsichtbar */
+    transform: translateY(20px); /* Anfangszustand: etwas nach unten verschoben */
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-delay: 1.8s;
+}
+
+.karte1, .karte2, .karte3 {
+    width: 20%;
+    text-align: left;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+} 
+
+h2{
+    margin-bottom: 16px;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        margin-top: 0px;
+        flex-direction: column; /* Stapelt die Karten vertikal */
+        align-items: center; /* Zentriert die Karten */
+        position: static; /* Entfernt das absolute Positionieren */
+        transform: translateY(0); /* Setzt die Y-Verschiebung zurück */
+        width: 90%; /* Passt die Breite der gesamten Container an */
+    }
+
+    .content {
+        position: relative; /* Verhindert, dass .content absolut positioniert wird */
+        top: 0; /* Entfernt die obere Verschiebung */
+        transform: translateY(0); /* Setzt die Y-Verschiebung zurück */
+        margin-top: -20px; /* Falls du einen Abstand brauchst */
+    }
+
+    .karte1, .karte2, .karte3 {
+        width: 100%; /* Volle Breite für jede Karte auf kleineren Bildschirmen */
+        margin: 10px 0; /* Reduziert den Abstand um jede Karte */
+        text-align: center; /* Zentriert den Text */
+    }
+
+    .content h1 {
+        font-size: 40px; /* Kleinere Schriftgröße für die Hauptüberschrift */
+    }
+
+    .content h2 {
+        font-size: 24px; /* Kleinere Schriftgröße für Unterüberschriften */
+    }
+
+    .content h3 {
+        font-size: 14px; /* Kleinere Schriftgröße für Textinhalt */
+    }
+
+    .navbar ul {
+        display: none; /* Versteckt das Menü standardmäßig */
+        flex-direction: column;
+        position: absolute;
+        top: 80px; /* Höhe der Navbar */
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 150px;
+        text-align: left;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .navbar ul.show {
+        display: flex; /* Zeigt das Menü an, wenn die Klasse "show" hinzugefügt wird */
+    }
+
+    .hamburger {
+        display: flex; /* Zeigt den Hamburger-Button an */
+    }
+
+    .navbar ul li {
+        margin: 10px 0; /* Abstände zwischen den Menüpunkten im Dropdown */
+    }
+}

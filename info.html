@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesInfo.css">
+    <title>Info</title>
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <img src="bilder/Chogan_Logo_w-300x183.png" class="logo">
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="info.html">Info</a></li>
+                <li><a href="produktkatalog.html">Produktkatalog</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Informationen</h1>
+            <div class="container">
+                <div class="karte1">
+                    <h2>Produkte</h2>
+                    <h3>Chogan´s Düfte sind von beliebten Parfümen inspiriert, riechen gleich aber zu einem fairen Preis. Die Parfüme werden in Italien produziert.</h3>
+                </div>
+                <div class="karte2">
+                    <h2>Bestellung</h2>
+                    <h3>Möchtest du eine Bestellung in Auftrag geben oder eine Duftprobe machen, kontaktiere deine Kontaktperson. Die Lieferzeit beträgt zwei Wochen.</h3>
+                </div>
+                <div class="karte3">
+                    <h2>Rechtliches</h2>
+                    <h3>Bei dieser Website handelt es sich lediglich um eine Vertriebswesite, die nichts mit der Offizielen Chogan Seite zu tun hat. Die Bilder im Produktkatalog dienen nur der Veranschaulichung. <br> Parfüme werden mit den Chogan eigenen Flaschen ausgeliefert.</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Öffnet oder schließt das Menü, wenn auf den Hamburger-Button geklickt wird
+        function toggleMenu() {
+            const navMenu = document.querySelector('.navbar ul');
+            navMenu.classList.toggle('show'); // Fügt die Klasse "show" hinzu oder entfernt sie
+        }
+    
+        // Schließt das Menü, wenn außerhalb der Navbar geklickt wird
+        document.addEventListener('click', function(event) {
+            const navMenu = document.querySelector('.navbar ul');
+            const hamburgerButton = document.querySelector('.hamburger');
+    
+            // Überprüft, ob der Klick außerhalb des Menüs und des Hamburger-Buttons war
+            if (!navMenu.contains(event.target) && !hamburgerButton.contains(event.target)) {
+                navMenu.classList.remove('show'); // Entfernt die Klasse "show", um das Menü zu schließen
+            }
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
